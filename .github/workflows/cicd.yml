@@ -1,4 +1,4 @@
-name: For every push
+name: cicd
 
 on: [push]
 
@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: PHPUnit Tests
       uses: php-actions/phpunit@v1
+      env:
+          TEST_NAME: CalculadoraTest
       with:
           configuration: test/phpunit.xml
           args: --coverage-text
